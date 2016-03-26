@@ -2,10 +2,8 @@
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
 
-// grails.config.locations = [ "classpath:${appName}-config.properties",
-//                             "classpath:${appName}-config.groovy",
-//                             "file:${userHome}/.grails/${appName}-config.properties",
-//                             "file:${userHome}/.grails/${appName}-config.groovy"]
+grails.config.locations = [ "classpath:${appName}-config.properties",
+                             "classpath:${appName}-config.groovy"]
 
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
@@ -125,6 +123,8 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.abanppc.gateway.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.abanppc.gateway.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.abanppc.gateway.Role'
+grails.plugin.springsecurity.password.algorithm = 'SHA-512'
+grails.plugin.springsecurity.password.hash.iterations = 1
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
 	'/index':           ['permitAll'],
@@ -133,6 +133,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
-	'/**/favicon.ico':  ['permitAll']
+	'/**/favicon.ico':  ['permitAll'],
+	'/transfer/**':     ['permitAll'],
 ]
 
